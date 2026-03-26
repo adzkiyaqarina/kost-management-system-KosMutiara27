@@ -168,10 +168,3 @@ Penyewa
 ├── Melakukan reservasi kamar
 ├── Upload bukti pembayaran
 └── Melihat riwayat transaksi
-```
-
----
-
-## Lisensi
-
-Proyek ini dibuat untuk keperluan akademis (Tugas Akhir / Skripsi).
