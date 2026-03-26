@@ -169,7 +169,7 @@ class LaporanController extends Controller
     /**
      * Submit report to owner
      */
-    public function submit(Request $request, GeneratedReport $report)
+    public function submit(Request $request, Laporan $report)
     {
         if ($report->status !== 'draft') {
             return back()->with('error', 'Hanya laporan dalam status draft yang bisa dikirim');
@@ -205,7 +205,7 @@ class LaporanController extends Controller
     /**
      * Preview report as PDF
      */
-    public function preview(GeneratedReport $report)
+    public function preview(Laporan $report)
     {
         if ($report->status === 'draft' && $report->admin_id !== Auth::id() && Auth::user()->role !== 'admin') {
             abort(403);
@@ -222,7 +222,7 @@ class LaporanController extends Controller
     /**
      * Download report as PDF
      */
-    public function downloadPdf(GeneratedReport $report)
+    public function downloadPdf(Laporan $report)
     {
         if ($report->status === 'draft' && $report->admin_id !== Auth::id() && Auth::user()->role !== 'admin') {
             abort(403);
@@ -252,7 +252,7 @@ class LaporanController extends Controller
     /**
      * Download report as Excel
      */
-    public function downloadExcel(GeneratedReport $report)
+    public function downloadExcel(Laporan $report)
     {
         if ($report->status === 'draft' && $report->admin_id !== Auth::id() && Auth::user()->role !== 'admin') {
             abort(403);
@@ -308,7 +308,7 @@ class LaporanController extends Controller
     /**
      * Delete report
      */
-    public function destroy(GeneratedReport $report)
+    public function destroy(Laporan $report)
     {
         if ($report->status !== 'draft' || Auth::user()->role !== 'admin') {
             abort(403);
@@ -328,7 +328,7 @@ class LaporanController extends Controller
     /**
      * Get report data by type
      */
-    private function getReportData(GeneratedReport $report)
+    private function getReportData(Laporan $report)
     {
         $data = [
             'report_month' => $report->report_month,
@@ -349,7 +349,7 @@ class LaporanController extends Controller
     /**
      * Generate actual PDF and Excel files
      */
-    private function generateReportFiles(GeneratedReport $report, $reportData, $reportType)
+    private function generateReportFiles(Laporan $report, $reportData, $reportType)
     {
         // Generate PDF
         try {
