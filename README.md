@@ -61,13 +61,13 @@ Buka file `.env` dan sesuaikan konfigurasi berikut:
 ```env
 # Konfigurasi Database
 DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=nama_database_kamu
+DB_PORT=3307
+DB_DATABASE=nama_database
 DB_USERNAME=root
-DB_PASSWORD=password_database_kamu
+DB_PASSWORD=password_database
 
 # Konfigurasi AI Assistant (lihat panduan di bawah)
-GEMINI_API_KEY=isi_dengan_api_key_kamu
+GEMINI_API_KEY=isi_dengan_api_key
 ```
 
 ### 4. Siapkan Database
